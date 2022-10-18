@@ -4,20 +4,19 @@
 // </copyright>
 //-------------------------------------------------------------------------
 
-using System;
 using System.Collections.Generic;
 
 namespace Full_GRASP_And_SOLID
 {
     public class Recipe
     {
-        private IList<Step> steps = new List<Step>();
+        private IList<Step> steps = new List<Step>();//recipe, por creator, es el contenedor de step, debe iniciar el las instancias
 
         public Product FinalProduct { get; set; }
 
-        public void AddStep(Step step)
+        public void AddStep(Product input, double quantity, Equipment equipment, int time) //Step(Product input, double quantity, Equipment equipment, int time)
         {
-            this.steps.Add(step);
+            this.steps.Add(new Step(input,quantity,equipment,time));
         }
 
         public void RemoveStep(Step step)
